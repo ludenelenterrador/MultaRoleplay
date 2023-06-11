@@ -1,0 +1,13 @@
+name: MultaLuden
+version: 1.4
+main: luden.multa.Main
+authors: [ Luden ]
+website: https://luden.x10.mx/
+commands:
+    multa:
+    multahistory:
+permissions:
+  luden-multa.multa:
+    default: false
+  luden-multa.history:
+    default: false

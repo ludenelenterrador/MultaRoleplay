@@ -1,0 +1,13 @@
+name: MultaRoleplay
+version: 1.5
+main: luden.multaroleplay.Main
+authors: [ Luden ]
+website: https://luden.x10.mx/
+commands:
+    multa:
+    multahistory:
+permissions:
+  luden-multa.multa:
+    default: false
+  luden-multa.history:
+    default: false
