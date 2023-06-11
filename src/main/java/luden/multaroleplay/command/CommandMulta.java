@@ -37,17 +37,14 @@ public class CommandMulta implements CommandExecutor {
             List multas;
             Calendar calendar;
             String date;
-            String oficial;
-            String personamala;
-            String pathañadirmulta;
+            String police;
+            String badpeople;
             Player target;
-            String pathjugadorinvalido;
             byte startArg;
             String razon;
             if (player.isOp()) {
                 if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
                     if (sender.isOp()) {
-                        pathformato = "Reload";
                         this.plugin.reloadConfig();
                         player.sendMessage(ChatColor.GREEN + "El plugin a sido recargado correctamente.");
                         return true;
@@ -63,7 +60,6 @@ public class CommandMulta implements CommandExecutor {
                 } else {
                     target = Bukkit.getPlayerExact(args[0]);
                     if (target == null) {
-                        pathjugadorinvalido = "Jugador-Invalido";
                         player.sendMessage(ChatColor.RED + "¡Este jugador no existe!");
                         return true;
                     } else if (!target.isOnline()) {
@@ -98,14 +94,13 @@ public class CommandMulta implements CommandExecutor {
                         multas = this.plugin.getConfig().getStringList("multas." + target.getName() + ".lista");
                         calendar = Calendar.getInstance();
                         date = String.format("%04d-%02d-%02d %02d:%02d:%02d", calendar.get(1), calendar.get(2) + 1, calendar.get(5), calendar.get(11), calendar.get(12), calendar.get(13));
-                        oficial = player.getName();
-                        personamala = target.getName();
-                        multas.add(amount + "|" + razon + "|" + oficial + "|" + date);
+                        police = player.getName();
+                        badpeople = target.getName();
+                        multas.add(amount + "|" + razon + "|" + police + "|" + date);
                         this.plugin.getConfig().set("multas." + target.getName() + ".lista", multas);
                         this.plugin.saveConfig();
-                        player.getInventory().addItem(new ItemStack[]{this.createMulta(target.getName(), amount, razon, oficial, date)});
-                        pathañadirmulta = "Añadir-Multa";
-                        player.sendMessage(ChatColor.GREEN + "Se ha añadido una multa al jugador: " + ChatColor.WHITE + personamala);
+                        player.getInventory().addItem(new ItemStack[]{this.createMulta(target.getName(), amount, razon, police, date)});
+                        player.sendMessage(ChatColor.GREEN + "Se ha añadido una multa al jugador: " + ChatColor.WHITE + badpeople);
                         this.plugin.reloadConfig();
                         return true;
                     }
@@ -118,7 +113,6 @@ public class CommandMulta implements CommandExecutor {
                 } else {
                     target = Bukkit.getPlayerExact(args[0]);
                     if (target == null) {
-                        pathjugadorinvalido = "Jugador-Invalido";
                         player.sendMessage(ChatColor.RED + "¡Este jugador no existe!");
                         return true;
                     } else if (!target.isOnline()) {
@@ -153,14 +147,13 @@ public class CommandMulta implements CommandExecutor {
                         multas = this.plugin.getConfig().getStringList("multas." + target.getName() + ".lista");
                         calendar = Calendar.getInstance();
                         date = String.format("%04d-%02d-%02d %02d:%02d:%02d", calendar.get(1), calendar.get(2) + 1, calendar.get(5), calendar.get(11), calendar.get(12), calendar.get(13));
-                        oficial = player.getName();
-                        personamala = target.getName();
-                        multas.add(amount + "|" + razon + "|" + oficial + "|" + date);
+                        police = player.getName();
+                        badpeople = target.getName();
+                        multas.add(amount + "|" + razon + "|" + police + "|" + date);
                         this.plugin.getConfig().set("multas." + target.getName() + ".lista", multas);
                         this.plugin.saveConfig();
-                        player.getInventory().addItem(new ItemStack[]{this.createMulta(target.getName(), amount, razon, oficial, date)});
-                        pathañadirmulta = "Añadir-Multa";
-                        player.sendMessage(ChatColor.GREEN + "Se ha añadido una multa al jugador: " + ChatColor.WHITE + personamala);
+                        player.getInventory().addItem(new ItemStack[]{this.createMulta(target.getName(), amount, razon, police, date)});
+                        player.sendMessage(ChatColor.GREEN + "Se ha añadido una multa al jugador: " + ChatColor.WHITE + badpeople);
                         this.plugin.reloadConfig();
                         return true;
                     }
@@ -168,7 +161,6 @@ public class CommandMulta implements CommandExecutor {
             } else if (player.hasPermission("luden-multa.multa") && player.isOp()) {
                 if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
                     if (sender.isOp()) {
-                        pathformato = "Reload";
                         this.plugin.reloadConfig();
                         player.sendMessage(ChatColor.GREEN + "El plugin a sido recargado correctamente.");
                         return true;
@@ -184,7 +176,6 @@ public class CommandMulta implements CommandExecutor {
                 } else {
                     target = Bukkit.getPlayerExact(args[0]);
                     if (target == null) {
-                        pathjugadorinvalido = "Jugador-Invalido";
                         player.sendMessage(ChatColor.RED + "¡Este jugador no existe!");
                         return true;
                     } else if (!target.isOnline()) {
@@ -219,14 +210,13 @@ public class CommandMulta implements CommandExecutor {
                         multas = this.plugin.getConfig().getStringList("multas." + target.getName() + ".lista");
                         calendar = Calendar.getInstance();
                         date = String.format("%04d-%02d-%02d %02d:%02d:%02d", calendar.get(1), calendar.get(2) + 1, calendar.get(5), calendar.get(11), calendar.get(12), calendar.get(13));
-                        oficial = player.getName();
-                        personamala = target.getName();
-                        multas.add(amount + "|" + razon + "|" + oficial + "|" + date);
+                        police = player.getName();
+                        badpeople = target.getName();
+                        multas.add(amount + "|" + razon + "|" + police + "|" + date);
                         this.plugin.getConfig().set("multas." + target.getName() + ".lista", multas);
                         this.plugin.saveConfig();
-                        player.getInventory().addItem(new ItemStack[]{this.createMulta(target.getName(), amount, razon, oficial, date)});
-                        pathañadirmulta = "Añadir-Multa";
-                        player.sendMessage(ChatColor.GREEN + "Se ha añadido una multa al jugador: " + ChatColor.WHITE + personamala);
+                        player.getInventory().addItem(new ItemStack[]{this.createMulta(target.getName(), amount, razon, police, date)});
+                        player.sendMessage(ChatColor.GREEN + "Se ha añadido una multa al jugador: " + ChatColor.WHITE + badpeople);
                         this.plugin.reloadConfig();
                         return true;
                     }
